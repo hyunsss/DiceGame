@@ -28,23 +28,16 @@ public class GameManager : SingleTon<GameManager>
 
     IEnumerator GenerateMonsterCoroutine()
     {
-        while (true)
-        {
-            do
-            {
-                SpawnMobArea(out Vector2 Area);
-                SpawnArea = Area;
-            }
-            while (!DontSpawnArea(SpawnArea, minNoSpawnMob, maxNoSpawnMob));
-            {
-                for (int i = 0; i < MobCount; i++)
-                {
+            for(int i = 0; i < MobCount; i++) {
+                SpawnMobArea(out Vector2 area);
+                SpawnArea = area;
+                if(!DontSpawnArea(SpawnArea, minNoSpawnMob, maxNoSpawnMob)) {
                     GameObject Unit = ObjectPoolManager.Instance.ActivePool(MonsterPrefabs);
                     Unit.transform.position = SpawnArea;
                 }
-                yield return new WaitForSeconds(2f);
             }
-        }
+            yield return new WaitForSeconds(2f);
+            StartCoroutine(GenerateMonsterCoroutine());
 
     }
 
@@ -53,23 +46,23 @@ public class GameManager : SingleTon<GameManager>
         minBoxPos = AreaSetPos(-13f, -8f);
         maxBoxPos = AreaSetPos(13f, 8f);
 
-        minNoSpawnMob = AreaSetPos(-8f, -5f);
-        maxNoSpawnMob = AreaSetPos(8f, 5f);
+        minNoSpawnMob = AreaSetPos(-6f, -3f);
+        maxNoSpawnMob = AreaSetPos(6f, 3f);
 
         SpawnArea = new Vector2(Random.Range(minBoxPos.x, maxBoxPos.x), Random.Range(minBoxPos.y, maxBoxPos.y));
 
     }
 
 
-    private bool DontSpawnArea(Vector2 posiiton, Vector2 minNoSpawn, Vector2 maxNoSpawn)
+    private bool DontSpawnArea(Vector2 position, Vector2 minNoSpawn, Vector2 maxNoSpawn)
     {
-        return posiiton.x >= maxNoSpawn.x && posiiton.x <= minNoSpawn.x && posiiton.y >= maxNoSpawn.y && posiiton.y <= maxNoSpawn.y;
+        return position.x >= minNoSpawn.x && position.x <= maxNoSpawn.x 
+        && position.y >= minNoSpawn.y && position.y <= maxNoSpawn.y;
     }
 
 
     private Vector2 AreaSetPos(float x, float y)
     {
-
         return new Vector2(PlayerPos.x + x, PlayerPos.y + y);
     }
 

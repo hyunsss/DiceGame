@@ -66,7 +66,8 @@ public class ObjectPoolManager : SingleTon<ObjectPoolManager>
     //게임 오브젝트 비 활성화
     public void UnActivePool(GameObject Prefab)
     {
-        if (UsePrefabs.Remove(Prefab))
+        
+        if (UsePrefabs != null && UsePrefabs.Remove(Prefab))
         {
             Prefab.transform.parent = transform;
             Prefab.SetActive(false);
