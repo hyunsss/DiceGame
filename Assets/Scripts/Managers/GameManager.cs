@@ -4,26 +4,73 @@ using UnityEngine;
 
 public class GameManager : SingleTon<GameManager>
 {
+    private Vector2 PlayerPos;
     public GameObject[] MonsterPrefabs;
 
-    private void Start() {
-        _= StartCoroutine(GenerateMonsterCoroutine());
+    public int MobCount;
+
+    #region AreaType
+    private Vector2 minBoxPos;
+    private Vector2 maxBoxPos;
+    private Vector2 minNoSpawnMob;
+    private Vector2 maxNoSpawnMob;
+    private Vector2 SpawnArea;
+    #endregion
+    private void Start()
+    {
+        _ = StartCoroutine(GenerateMonsterCoroutine());
     }
 
+    private void FixedUpdate()
+    {
+        PlayerPos = Player.Instance.transform.position;
+    }
 
-    IEnumerator GenerateMonsterCoroutine() {
-        while(true) {
-            for(int i = 0; i < 4; i++) {
-                Vector3 randomPos = Random.insideUnitSphere * 5;
-
-				GameObject Unit = ObjectPoolManager.Instance.ActivePool(GameManager.Instance.MonsterPrefabs);
-
-				Unit.transform.position = randomPos;
-                //Todo : 플레이어 기준 사각형 외각에 몬스터가 스폰되도록 설정
-
+    IEnumerator GenerateMonsterCoroutine()
+    {
+        while (true)
+        {
+            do
+            {
+                SpawnMobArea(out Vector2 Area);
+                SpawnArea = Area;
             }
-        yield return new WaitForSeconds(2f);
+            while (!DontSpawnArea(SpawnArea, minNoSpawnMob, maxNoSpawnMob));
+            {
+                for (int i = 0; i < MobCount; i++)
+                {
+                    GameObject Unit = ObjectPoolManager.Instance.ActivePool(MonsterPrefabs);
+                    Unit.transform.position = SpawnArea;
+                }
+                yield return new WaitForSeconds(2f);
+            }
         }
 
     }
+
+    private void SpawnMobArea(out Vector2 SpawnArea)
+    {
+        minBoxPos = AreaSetPos(-13f, -8f);
+        maxBoxPos = AreaSetPos(13f, 8f);
+
+        minNoSpawnMob = AreaSetPos(-8f, -5f);
+        maxNoSpawnMob = AreaSetPos(8f, 5f);
+
+        SpawnArea = new Vector2(Random.Range(minBoxPos.x, maxBoxPos.x), Random.Range(minBoxPos.y, maxBoxPos.y));
+
+    }
+
+
+    private bool DontSpawnArea(Vector2 posiiton, Vector2 minNoSpawn, Vector2 maxNoSpawn)
+    {
+        return posiiton.x >= maxNoSpawn.x && posiiton.x <= minNoSpawn.x && posiiton.y >= maxNoSpawn.y && posiiton.y <= maxNoSpawn.y;
+    }
+
+
+    private Vector2 AreaSetPos(float x, float y)
+    {
+
+        return new Vector2(PlayerPos.x + x, PlayerPos.y + y);
+    }
+
 }
