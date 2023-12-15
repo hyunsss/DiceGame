@@ -54,7 +54,7 @@ public class Monster : MonoBehaviour, IresetTable
 
     public void TakeDamage(int Damage) {
         Hp -= Damage;
-
+        _anim.SetTrigger("Hit");
 
         if(Hp <= 0) {
             Death();
