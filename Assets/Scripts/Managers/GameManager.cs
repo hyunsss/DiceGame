@@ -1,13 +1,19 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class GameManager : SingleTon<GameManager>
 {
     private Vector2 PlayerPos;
     public GameObject[] MonsterPrefabs;
 
+    public Vector2 GetPlayerPos { get { return PlayerPos;} }
     public int MobCount;
+    
+
+    
 
     #region AreaType
     private Vector2 minBoxPos;
@@ -21,9 +27,10 @@ public class GameManager : SingleTon<GameManager>
         _ = StartCoroutine(GenerateMonsterCoroutine());
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         PlayerPos = Player.Instance.transform.position;
+        
     }
 
     IEnumerator GenerateMonsterCoroutine()
@@ -41,6 +48,8 @@ public class GameManager : SingleTon<GameManager>
 
     }
 
+    
+
     private void SpawnMobArea(out Vector2 SpawnArea)
     {
         minBoxPos = AreaSetPos(-13f, -8f);
@@ -50,9 +59,7 @@ public class GameManager : SingleTon<GameManager>
         maxNoSpawnMob = AreaSetPos(6f, 3f);
 
         SpawnArea = new Vector2(Random.Range(minBoxPos.x, maxBoxPos.x), Random.Range(minBoxPos.y, maxBoxPos.y));
-
     }
-
 
     private bool DontSpawnArea(Vector2 position, Vector2 minNoSpawn, Vector2 maxNoSpawn)
     {
@@ -66,4 +73,40 @@ public class GameManager : SingleTon<GameManager>
         return new Vector2(PlayerPos.x + x, PlayerPos.y + y);
     }
 
+    public GameObject RandomMonster() {
+        int RandomIndex = Random.Range(0, MonsterPrefabs.Length);
+
+        return MonsterPrefabs[RandomIndex];
+    }
+
+    /*
+    어떤 리스트에 있는 값들을 인덱스로 접근하기 위해
+    RandomIntList에 목표 리스트의 인덱스 값들을 할당함. 
+    Random.Range에서 RandomIntList.Count 만큼의 수를 랜덤으로 뽑음
+    랜덤으로 뽑은 숫자. RandomIntList(Random)을 대입하여 그 안에있던 인덱스 값을 꺼내어 반환함. 
+    */
+    public int[] GenerateRandomListIndex<T>(List<T> list, int count) {
+        
+        if(list == null && list.Count < count) {
+            Debug.Log("Error!! Out of Index --> list");
+            return null;
+        }
+
+        List<int> RandomIntList = new List<int>(); 
+        int[] ReturnIndex = new int[count];
+
+        for(int i = 0; i < list.Count; i++) {
+            RandomIntList.Add(i);
+        }
+        
+        for(int i = 0; i < count; i++) {
+            int index = Random.Range(0, RandomIntList.Count);
+            ReturnIndex[i] = RandomIntList[index];
+            RandomIntList.Remove(index);
+        }
+
+        return ReturnIndex;
+    }
+
+    
 }

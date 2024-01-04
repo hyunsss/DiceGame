@@ -20,7 +20,7 @@ public class ObjectPoolManager : SingleTon<ObjectPoolManager>
     private void Start()
     {
         for(int i = 0; i < InitPrefabCount; i++) {
-            CreatePrefabs(GameManager.Instance.MonsterPrefabs[0], out GameObject Unit);
+            CreatePrefabs(GameManager.Instance.RandomMonster(), out GameObject Unit);
             Unit.transform.parent = transform;
             Unit.SetActive(false);
             UnUsePrefabs.Add(Unit);
@@ -41,6 +41,7 @@ public class ObjectPoolManager : SingleTon<ObjectPoolManager>
             {
                 UsePrefabs.Add(Unit);
             }
+            
             
             IresetTable resetTable = Unit.GetComponent<IresetTable>(); // 몬스터의 경우 체력이 0인 상태이므로 초기화 인터페이스 작성
             if(resetTable != null) {
