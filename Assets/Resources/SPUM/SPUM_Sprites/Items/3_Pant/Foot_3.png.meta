@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f1278af64f0494dd0a4b0019f15673b8
+guid: 609a41e1ca9fa40c59073400be471883
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -9,7 +9,7 @@ TextureImporter:
       213: 2710371681560268619
     second: Left
   externalObjects: {}
-  serializedVersion: 12
+  serializedVersion: 11
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -69,7 +69,6 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
-  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -109,18 +108,6 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
-    maxTextureSize: 128
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Server
     maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
@@ -187,8 +174,8 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Left: 2710371681560268619
       Right: 4488402338830534301
+      Left: 2710371681560268619
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

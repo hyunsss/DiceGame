@@ -6,16 +6,13 @@ using Vector2 = UnityEngine.Vector2;
 using Vector3 = UnityEngine.Vector3;
 public class Player : SingleTon<Player>, IUnitMethod
 {
-    [SerializeField]
-    private int Damage;
-    [SerializeField]
-    private float Speed;
-    [SerializeField]
-    private float FullHp;
-    [SerializeField]
-    private float Hp;
-    [SerializeField]
-    public int Level;
+    [SerializeField] private int Damage;
+    [SerializeField] private float Speed;
+    [SerializeField] private float FullHp;
+    [SerializeField] private float Hp;
+    [SerializeField] public int Level;
+    [SerializeField] private float Hp_vampireStat;
+    [SerializeField] private float ArmorStat;
 
     private float currentExp;
     [SerializeField]
@@ -24,17 +21,17 @@ public class Player : SingleTon<Player>, IUnitMethod
 
     public GameObject AttackPrefab;
     public SPUM_Prefabs Prefabs;
-
-    public SpriteRenderer render;
     private Rigidbody2D rigid;
     bool AnimTrue;
     bool isAttack;
 
-    public int GetDamage { get { return Damage; } set { Damage = value; } }
-    public float GetSpeed { get { return Speed; } set { Speed = value; } }
+    public int GetDamage { get { return Damage + (int)ItemManager.Instance.GetVariance_Damage; } set { Damage = value; } }
+    public float GetSpeed { get { return Speed + ItemManager.Instance.GetVariance_Speed; } set { Speed = value; } }
+    public float GetHpVampire { get { return Damage * ( Hp_vampireStat +  + ItemManager.Instance.GetVariance_Hp_vampire / 100 ); } set { Hp_vampireStat = value; } }
+    public float GetArmor { get { return ArmorStat + ItemManager.Instance.GetVariance_ArmorStat; } set { ArmorStat = value; } }
     public float GetHp { get { return Hp; } set { Hp = value; } }
-    public float GetFullHp { get { return FullHp; } set { FullHp = value; } }
-    public float HPAmount { get { return Hp / FullHp; } }
+    public float GetFullHp { get { return FullHp + ItemManager.Instance.GetVariance_FullHp; } set { FullHp = value; } }
+    public float HPAmount { get { return GetHp / GetFullHp; } }
     public bool IsAttack { get { return isAttack;} set { isAttack = value;}}
     public float ExpAmount { get { return currentExp / MaxExp; } }
     public float GetCurrentExp { get { return currentExp; } set { currentExp = value; } }
@@ -78,11 +75,11 @@ public class Player : SingleTon<Player>, IUnitMethod
 
         if (x != 0 || y != 0)
         {
-            Prefabs.PlayAnimation(1); // 달리는 애니메이션
+           Prefabs._anim.SetFloat("RunState", 0.5f); // 달리는 애니메이션
         }
         else
         {
-            Prefabs.PlayAnimation(0); // Idle 애니메이션
+           Prefabs._anim.SetFloat("RunState", 0); // Idle 애니메이션
         }
         rigid.velocity = MoveDir;
     }
@@ -94,7 +91,7 @@ public class Player : SingleTon<Player>, IUnitMethod
 
     void Attack()
     {
-        Prefabs.PlayAnimation(4);
+        Prefabs._anim.SetTrigger("Attack");
 
         GameObject Attack = Instantiate(AttackPrefab);
         AttackMotion attackMotion = Attack.GetComponent<AttackMotion>();

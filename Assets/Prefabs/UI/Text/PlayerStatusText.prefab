@@ -90,7 +90,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7310910594184279471, guid: 1d0b43a6c6b5c40deb7503d81a06da49, type: 3}
       propertyPath: m_Name
-      value: Text Prefab
+      value: PlayerStatusText
+      objectReference: {fileID: 0}
+    - target: {fileID: 8516208562661918672, guid: 1d0b43a6c6b5c40deb7503d81a06da49, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 7676590ac24ce41baa69f147914ce9a7, type: 2}
+    - target: {fileID: 8516208562661918672, guid: 1d0b43a6c6b5c40deb7503d81a06da49, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -543642437651723995, guid: 7676590ac24ce41baa69f147914ce9a7, type: 2}
+    - target: {fileID: 8516208562661918672, guid: 1d0b43a6c6b5c40deb7503d81a06da49, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

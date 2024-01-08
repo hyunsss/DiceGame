@@ -25,6 +25,14 @@ public class GameManager : SingleTon<GameManager>
     private void Start()
     {
         _ = StartCoroutine(GenerateMonsterCoroutine());
+
+        /*
+        맵 박스 생성
+        1. TileMapManager -> Box Pos 구하기
+        2. Box Pos List에서 80% 만큼 랜덤적으로 번호 뽑기
+        3. 랜덤한 포지션에 박스를 생성하기
+        
+        */
     }
 
     private void Update()
@@ -33,6 +41,7 @@ public class GameManager : SingleTon<GameManager>
         
     }
 
+    #region Monster Generate
     IEnumerator GenerateMonsterCoroutine()
     {
             for(int i = 0; i < MobCount; i++) {
@@ -41,7 +50,8 @@ public class GameManager : SingleTon<GameManager>
                 if(!DontSpawnArea(SpawnArea, minNoSpawnMob, maxNoSpawnMob)) {
                     GameObject Unit = ObjectPoolManager.Instance.ActivePool(MonsterPrefabs);
                     Unit.transform.position = SpawnArea;
-                }
+
+                } 
             }
             yield return new WaitForSeconds(2f);
             StartCoroutine(GenerateMonsterCoroutine());
@@ -78,6 +88,7 @@ public class GameManager : SingleTon<GameManager>
 
         return MonsterPrefabs[RandomIndex];
     }
+    #endregion
 
     /*
     어떤 리스트에 있는 값들을 인덱스로 접근하기 위해
@@ -107,6 +118,8 @@ public class GameManager : SingleTon<GameManager>
 
         return ReturnIndex;
     }
+
+    
 
     
 }

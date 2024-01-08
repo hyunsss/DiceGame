@@ -17,9 +17,15 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
     {
         ItemStatusobj = GameObject.FindWithTag("ItemStatus");
 
+
+    }
+
+    private void Start() {
+        
         if (GetComponentInChildren<Item>() == null && item != null)
         {
             GameObject itemObject = Instantiate(item.gameObject);
+            itemObject.name = item.gameObject.name;
             itemObject.transform.SetParent(this.gameObject.transform);
             itemObject.GetComponent<RectTransform>().anchoredPosition = GetComponent<RectTransform>().position;
             itemObject.GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
@@ -44,14 +50,39 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
         
         GameObject dropped = eventData.pointerDrag;
         DragController dragController = dropped.GetComponent<DragController>();
+        ItemType DropItemtype = dragController.gameObject.GetComponent<Item>().type;
 
-        if(dragController.gameObject.GetComponent<Item>().type == Slotitemtype) {
+        if(DropItemtype == Slotitemtype && Slotitemtype == ItemType.Weapon) {
+            // 아이템 타입이 Weapon일 때
             dragController.parentAfterDrag = transform;
-        } else if(Slotitemtype == ItemType.None) {
+            Equipment equipitem = dragController.gameObject.GetComponent<Equipment>();
+            ItemManager.Instance.ChangeEquipItem(equipitem);
+
+        } else if (DropItemtype == Slotitemtype && Slotitemtype == ItemType.Equipment) {
+            // 아이템 타입이 equipment일 때
+            dragController.parentAfterDrag = transform;
+            Equipment equipitem = dragController.gameObject.GetComponent<Equipment>();
+            ItemManager.Instance.ChangeEquipItem(equipitem);
+
+        } else if (DropItemtype == Slotitemtype && Slotitemtype == ItemType.PassiveSkill) {
+            // 아이템 타입이 PassiveSkill일 때
             dragController.parentAfterDrag = transform;
         }
 
+        else if(Slotitemtype == ItemType.None) {
 
+            //드래그 하기 전 슬롯이 equipment였다면 여기 로직은 장착을 해제하는 부분이므로 조건체크를 한 뒤 장비를 해체하는 작업을 함.
+            if(dragController.parentAfterDrag.GetComponent<Slot>().Slotitemtype == ItemType.Weapon) {
+                Equipment equipitem = dragController.gameObject.GetComponent<Equipment>();
+                ItemManager.Instance.UnEquipSprite(equipitem);
+            } else if(dragController.parentAfterDrag.GetComponent<Slot>().Slotitemtype == ItemType.Equipment) {
+                Equipment equipitem = dragController.gameObject.GetComponent<Equipment>();
+                ItemManager.Instance.UnEquipSprite(equipitem);
+            }
+
+
+            dragController.parentAfterDrag = transform;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -59,8 +90,8 @@ public class Slot : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerE
         if (item != null)
         {
             ItemStatusobj.SetActive(true);
-            DATA.Instance.Item_name_Dic.TryGetValue(item.type, out string name);
-            DATA.Instance.Item_Desc_Dic.TryGetValue(item.type, out string Desc);
+            string name = item._itemname;
+            string Desc = item._itemdesc;
             ItemStatusobj.GetComponent<ItemStatus>().SetItemStatus(name, Desc);
 
             Vector2 MousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);

@@ -6,21 +6,24 @@ using UnityEngine;
 public class InventoryManager : SingleTon<InventoryManager>
 {
     private bool InventoryActive = false;
+    public GameObject InventoryGameobject;
 
-    public GameObject InventoryPanel;
+    public GameObject InventorySlotsPanel;
     public GameObject EquimentPanel;
     public GameObject PassivePanel;
     public GameObject RootBoxPanel;
     public GameObject CurrentSkillPanel;
 
-    public Slot[] Inventoryslots;
+    public Slot[] inventorySlots;
+    public Slot[] equipSlots;
 
 
 
     // Start is called before the first frame update
     void Start()
     {
-        Inventoryslots = InventoryPanel.GetComponentsInChildren<Slot>();
+        inventorySlots = InventorySlotsPanel.GetComponentsInChildren<Slot>();
+        equipSlots = EquimentPanel.GetComponentsInChildren<Slot>();
     }
 
     // Update is called once per frame
@@ -55,12 +58,12 @@ public class InventoryManager : SingleTon<InventoryManager>
         GameObject currentSlot = item.transform.parent.parent.gameObject;
 
         GameObject target = null;
-        if(currentSlot == InventoryPanel) {
+        if(currentSlot == InventorySlotsPanel) {
             if(RootBoxPanel.activeSelf == true) {
                 target = RootBoxPanel;
             } //인벤토리 추가 될 때 else if문 추가하기
         } else if(currentSlot == RootBoxPanel) {
-            target = InventoryPanel;
+            target = InventorySlotsPanel;
         }
 
         return target;
@@ -69,12 +72,12 @@ public class InventoryManager : SingleTon<InventoryManager>
 
 
     void CloseInventory() {
-        InventoryPanel.SetActive(false);
+        InventoryGameobject.SetActive(false);
         InventoryActive = false;
     }
 
     void OpenInventory() {
-        InventoryPanel.SetActive(true);
+        InventoryGameobject.SetActive(true);
         InventoryActive = true;
     }
 

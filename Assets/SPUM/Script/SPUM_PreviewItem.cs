@@ -7,15 +7,25 @@ public class SPUM_PreviewItem : MonoBehaviour
 {
     #if UNITY_EDITOR
     public List<GameObject> _objList = new List<GameObject>();
+    public Image _emptyImage;
     public Image _basicImage;
     public List<Image> _armorList = new List<Image>();
+    public List<Image> _skinList = new List<Image>();
     public List<Image> _clothList = new List<Image>();
     public List<Image> _pantList = new List<Image>();
     public List<Image> _fullSetList = new List<Image>();
+    public List<Image> _eyeSetList = new List<Image>();
+    public List<Image> _horseList = new List<Image>();
+
 
 
     public void ShowObj(int num)
     {
+        if(num!=-2)
+        {
+            _emptyImage.gameObject.SetActive(false);
+        }
+
         for(var i = 0 ; i < _objList.Count;i++)
         {
             if( i==num) _objList[i].SetActive(true);
@@ -30,7 +40,7 @@ public class SPUM_PreviewItem : MonoBehaviour
     public int _index;
 
     public void SetSprite()
-    {
+    {   
         _managerST.SetSprite(_itemType,_sprite,_name,_index);
     }
 

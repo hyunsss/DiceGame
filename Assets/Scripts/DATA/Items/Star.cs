@@ -9,7 +9,7 @@ public class Star : Item
     public float RecoveryHp;
 
     private void Awake() {
-        type = ItemType.Expendable;
+        
     }
 
     public override void Use()

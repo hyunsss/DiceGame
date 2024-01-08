@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -20,8 +19,8 @@ public class PlayerStatusPanel : MonoBehaviour
     void Update()
     {
         Leveltext.text = $"{Player.Instance.Level}";
-        HPtext.text = $"{Player.Instance.GetHp} / {Player.Instance.GetFullHp}";
-        Exptext.text = $"{Player.Instance.GetCurrentExp} / {Player.Instance.GetMaxExp}";
+        HPtext.text = $"{Math.Ceiling(Player.Instance.GetHp)} / {Player.Instance.GetFullHp} +({ItemManager.Instance.GetVariance_FullHp})";
+        Exptext.text = $"{Math.Ceiling(Player.Instance.GetCurrentExp)} / {Player.Instance.GetMaxExp}";
         Damagetext.text = $"{Player.Instance.GetDamage}";
         Speedtext.text = $"{Player.Instance.GetSpeed}";
     }

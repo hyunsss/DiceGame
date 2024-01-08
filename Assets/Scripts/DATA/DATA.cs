@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
 public enum SkillType {  None, Rocket, Rotate, Shuriken, Count }
@@ -10,7 +11,9 @@ Activeskill, UpgradePart, EtcItem }
 
 public class DATA : SingleTon<DATA>
 {
-    
+    public List<Dictionary<string, object>> Testfile;
+
+
     public Dictionary<SkillType, string> Skill_name_Dic = new Dictionary<SkillType, string>();
     public Dictionary<SkillType, string> Skill_Desc_Dic = new Dictionary<SkillType, string>();
     public Dictionary<ItemType, string> Item_name_Dic = new Dictionary<ItemType, string>();
@@ -40,6 +43,11 @@ public class DATA : SingleTon<DATA>
     protected override void Awake() {
         base.Awake();
         SkillStringInit();
+        Testfile = CSVReader.Read("itemCSV"); 
+    }
+
+    private void Start() {
+        ItemStringInit();
     }
 
     public void SkillStringInit()
@@ -51,10 +59,22 @@ public class DATA : SingleTon<DATA>
         Skill_Desc_Dic.Add(SkillType.Rotate, RotateKnife_Desc);
         Skill_Desc_Dic.Add(SkillType.Rocket, Rocket_Desc);
         Skill_Desc_Dic.Add(SkillType.Shuriken, Shuriken_Desc);
+    }
 
-        Item_name_Dic.Add(ItemType.Expendable, Potion_name);
-
-        Item_Desc_Dic.Add(ItemType.Expendable, Potion_Desc);
+    void ItemStringInit() {
+        foreach(var item in ItemManager.Instance.ItemList) {
+            foreach(var data in Testfile) {
+                if(data["ID"].ToString() == item.gameObject.name) {
+                    item._itemname = data["Name"].ToString();
+                    item._itemdesc = data["DESC"].ToString();
+                    item.type = (ItemType)(int)data["TYPE"];
+                    item._itemprize = (int)data["PRIZE"];
+                    string ImagePath = data["ImagePath"].ToString();
+                    item._itemimage.sprite = Resources.Load<Sprite>($"ItemTexture/{ImagePath}");
+                    break;
+                }
+            }
+        }
     }
 
 }

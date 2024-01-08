@@ -3,15 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public abstract class Item : MonoBehaviour
+public class Item : MonoBehaviour
 {
-
-    // 쉬프트 + 클릭 
-    private Transform ParentSlot;
-    private Transform Target;
     /*
         Todo List : 
         몬스터 드랍 아이템
@@ -21,14 +17,17 @@ public abstract class Item : MonoBehaviour
         박스 안에 랜덤적으로 아이템을 생성
 
     */
-    public Sprite sprite;
     public ItemType type;
-
+    public string _itemname;
+    public string _itemdesc;
+    public int _itemprize;
+    public Image _itemimage;
+    
     private void Start() {
 
     }
 
-    public abstract void Use();
+    public virtual void Use() {}
 
     protected void Destroy() {
         Destroy(gameObject);

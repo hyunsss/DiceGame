@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemStatusobj: {fileID: 0}
-  itemtype: 0
+  Slotitemtype: 0
   item: {fileID: 0}
   Item_Image: {fileID: 0}
 --- !u!222 &5736484228970099818
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 86ca9c129a7554e59964a56a87fb1fad, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a1c9da091e5b84641a187ebd2cd5a4f4, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
