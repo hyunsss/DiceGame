@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using Unity.VisualScripting.Dependencies.Sqlite;
 using UnityEngine;
 
+
 public class ItemManager : SingleTon<ItemManager>
 {
     public enum Operation { Add, Subract }
-
+    public Dictionary<BoxType, List<Item>> ItemList_dic = new Dictionary<BoxType, List<Item>>(); 
     public Transform ItemListObject;
-    public List<Item> ItemList = new List<Item>();
 
+    public List<Item> ItemList = new List<Item>();
     public SpriteRenderer Player_LeftArm;
     public SpriteRenderer Player_RightArm;
     public SpriteRenderer Player_Body;

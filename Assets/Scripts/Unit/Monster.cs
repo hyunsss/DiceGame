@@ -102,7 +102,17 @@ public class Monster : MonoBehaviour, IUnitMethod, IresetTable
         }
     }
 
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.tag == "Wall") {
+            GetComponent<Collider2D>().isTrigger = true;
+        }
+    }
 
+    private void OnCollisionExit2D(Collision2D other) {
+        if(other.gameObject.tag == "Wall") {
+            GetComponent<Collider2D>().isTrigger = false;
+        }
+    }
     IEnumerator MonsterMoveCoroutine() {
 
         IsMove = false;

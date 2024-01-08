@@ -25,14 +25,6 @@ public class GameManager : SingleTon<GameManager>
     private void Start()
     {
         _ = StartCoroutine(GenerateMonsterCoroutine());
-
-        /*
-        맵 박스 생성
-        1. TileMapManager -> Box Pos 구하기
-        2. Box Pos List에서 80% 만큼 랜덤적으로 번호 뽑기
-        3. 랜덤한 포지션에 박스를 생성하기
-        
-        */
     }
 
     private void Update()

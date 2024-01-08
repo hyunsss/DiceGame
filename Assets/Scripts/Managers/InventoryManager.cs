@@ -71,12 +71,12 @@ public class InventoryManager : SingleTon<InventoryManager>
 
 
 
-    void CloseInventory() {
+    public void CloseInventory() {
         InventoryGameobject.SetActive(false);
         InventoryActive = false;
     }
 
-    void OpenInventory() {
+    public void OpenInventory() {
         InventoryGameobject.SetActive(true);
         InventoryActive = true;
     }

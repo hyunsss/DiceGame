@@ -5,9 +5,11 @@ using Unity.VisualScripting;
 using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
+public enum BoxType { NoneBox, EquipmentBox, SkillBox }
 public enum SkillType {  None, Rocket, Rotate, Shuriken, Count }
 public enum ItemType { None, Expendable, Equipment, Weapon, PassiveSkill, 
 Activeskill, UpgradePart, EtcItem }
+
 
 public class DATA : SingleTon<DATA>
 {

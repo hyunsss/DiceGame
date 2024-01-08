@@ -54,6 +54,7 @@ public class Player : SingleTon<Player>, IUnitMethod
             Attack();
             StartCoroutine(AttackDelay());
         }
+        
         CheckAnimation(out AnimTrue);
 
     }
