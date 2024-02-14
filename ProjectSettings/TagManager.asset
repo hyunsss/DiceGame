@@ -8,6 +8,12 @@ TagManager:
   - ItemStatus
   - BoxGenerate
   - Wall
+  - Monster
+  - Skill
+  - ItemBox
+  - EscapeGenerate
+  - Missile
+  - SpawnGenerate
   layers:
   - Default
   - TransparentFX

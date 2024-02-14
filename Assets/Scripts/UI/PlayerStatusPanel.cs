@@ -1,6 +1,7 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatusPanel : MonoBehaviour
 {
@@ -18,10 +19,12 @@ public class PlayerStatusPanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Leveltext.text = $"{Player.Instance.Level}";
-        HPtext.text = $"{Math.Ceiling(Player.Instance.GetHp)} / {Player.Instance.GetFullHp} +({ItemManager.Instance.GetVariance_FullHp})";
-        Exptext.text = $"{Math.Ceiling(Player.Instance.GetCurrentExp)} / {Player.Instance.GetMaxExp}";
-        Damagetext.text = $"{Player.Instance.GetDamage}";
-        Speedtext.text = $"{Player.Instance.GetSpeed}";
+        if(SceneManager.GetActiveScene().name == "GamePlayScene") {
+            Leveltext.text = $"{Player.Instance.Level}";
+            HPtext.text = $"{Math.Ceiling(Player.Instance.GetHp)} / {Player.Instance.GetFullHp} +({ItemManager.Instance.GetVariance_FullHp})";
+            Exptext.text = $"{Math.Ceiling(Player.Instance.GetCurrentExp)} / {Player.Instance.GetMaxExp}";
+            Damagetext.text = $"{Player.Instance.GetDamage}";
+            Speedtext.text = $"{Player.Instance.GetSpeed}";
+        }
     }
 }

@@ -9,13 +9,33 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: _itemdesc
+      value: "\uCCB4\uB825\uC774 \uC18C\uD3ED \uC99D\uAC00\uD569\uB2C8\uB2E4."
+      objectReference: {fileID: 0}
+    - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: _itemname
+      value: "\uBC29\uD3282"
+      objectReference: {fileID: 0}
+    - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
       propertyPath: equipType
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: _itemprize
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: itemSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca3de72d0da3149248789da060c00731, type: 3}
+    - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: Item_FullHp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
       propertyPath: Player_sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 5364a532c77cd43bc8549a556cb49758, type: 3}
+      objectReference: {fileID: 21300000, guid: 9dba285ec02cd4c84a0091de80b2fbef, type: 3}
     - target: {fileID: 1152847709821293544, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -96,9 +116,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4534270934353580826, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca3de72d0da3149248789da060c00731, type: 3}
     - target: {fileID: 8049873123407084144, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
       propertyPath: m_Name
       value: Eq_Shield1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151014685737558645, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: m_Size.x
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151014685737558645, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: m_Size.y
+      value: 0.66
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151014685737558645, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: ca3de72d0da3149248789da060c00731, type: 3}
+    - target: {fileID: 8151014685737558645, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

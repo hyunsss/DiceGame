@@ -39,3 +39,6 @@ W_Axe,도끼,공격력 증가 공격속도 감소,3,1000,AxeIcon
 W_Glove,장갑,공격속도 증가 공격력 감소,3,1000,BoxingGlove
 W_Sword1,검1,공격력 증가,3,1000,Sword1
 W_Sword2,검2,공격력 증가,3,1000,Sword2
+S_Shuriken,스킬 : 수리검,위쪽 방향으로 수리검을 던집니다.,5,99999,Shuriken
+S_RotateKnife,스킬 : 회전 낫,플레이어 주위를 돌며 적들을 공격합니다,5,99999,RotateKnife
+S_Rocket,스킬 : 로켓,"로켓을 발사하여 큰 데미지를 주고, 지속 데미지를 주는 화염 영역을 만듭니다.",5,99999,Rocket

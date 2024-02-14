@@ -1,20 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    private Slot[] Slots;
+    public Button RootBoxButton;
 
-
-    private void Awake() {
-        Slots = GetComponentsInChildren<Slot>();
-    }
 
     private void Start() {
-        foreach (Slot slot in Slots)
-        {
-            //slot.RendererItem();
-        }
+        RootBoxButton.onClick.AddListener(ItemManager.Instance.SearchItem);
     }
+
 }

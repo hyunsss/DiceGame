@@ -9,25 +9,45 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: Item_Hp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
       propertyPath: _itemdesc
-      value: 
+      value: "\uC660\uC9C0 \uAC15\uD574\uC9C0\uB294 \uB290\uB08C\uC774 \uB4E0\uB2E4."
       objectReference: {fileID: 0}
     - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
       propertyPath: _itemname
-      value: 
+      value: "\uAE30\uC0AC \uD5EC\uBA67"
       objectReference: {fileID: 0}
     - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
       propertyPath: equipType
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: Item_Speed
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
       propertyPath: _itemprize
       value: 800
       objectReference: {fileID: 0}
     - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: itemSprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eeb10229a71494aec98d7887d678f3f0, type: 3}
+    - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: Item_Damage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: Item_FullHp
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: -6551396634540871131, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
       propertyPath: Player_sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 06fd7b75262e041e1a78baecb78cd2ef, type: 3}
+      objectReference: {fileID: 21300000, guid: 02e3f677283d44df69b0c3056fe818a9, type: 3}
     - target: {fileID: 1152847709821293544, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -108,9 +128,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4534270934353580826, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eeb10229a71494aec98d7887d678f3f0, type: 3}
     - target: {fileID: 8049873123407084144, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
       propertyPath: m_Name
       value: Eq_KnightHat
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151014685737558645, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: m_Size.x
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151014685737558645, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: m_Size.y
+      value: 5.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8151014685737558645, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: eeb10229a71494aec98d7887d678f3f0, type: 3}
+    - target: {fileID: 8151014685737558645, guid: 1f1e42682cff24fdcbf5b352a18e175f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

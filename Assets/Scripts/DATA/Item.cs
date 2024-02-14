@@ -5,9 +5,12 @@ using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using Unity.VisualScripting;
 
 public class Item : MonoBehaviour
 {
+
+
     /*
         Todo List : 
         몬스터 드랍 아이템
@@ -21,18 +24,37 @@ public class Item : MonoBehaviour
     public string _itemname;
     public string _itemdesc;
     public int _itemprize;
-    public Image _itemimage;
-    
-    private void Start() {
+    public Sprite itemSprite;
+    [HideInInspector] public bool CheckItemTrue;
 
+    public Image _itemimage_Component;
+    public SpriteRenderer spriteRenderer_Component;
+    
+    [HideInInspector] public float Cumulative_Time;
+
+    private void Awake() {
+        CheckItemTrue = true;
+        _itemimage_Component.sprite = itemSprite;
+        spriteRenderer_Component.sprite = itemSprite;
+    }
+
+    private void Start() {
     }
 
     public virtual void Use() {}
 
-    protected void Destroy() {
-        Destroy(gameObject);
+    private void OnTriggerEnter2D(Collider2D other) {
+        if(other.gameObject.TryGetComponent(out Player player)) {
+            InventoryManager.Instance.InTriggerItemObject.Add(this);
+        } 
+            
     }
 
+    private void OnTriggerExit2D(Collider2D other) {
+        if(other.gameObject.TryGetComponent(out Player player)) {
+            InventoryManager.Instance.InTriggerItemObject.Remove(this);
+        } 
+    }
 
 }
 

@@ -58,7 +58,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7446402629369115395, guid: cee7fec0d9af34f408053af1bdc9c020, type: 3}
       propertyPath: AreaDamage
-      value: 1.2
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

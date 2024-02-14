@@ -18,8 +18,10 @@ public class Knifes : MonoBehaviour{
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.TryGetComponent<Monster>(out Monster monster)) {
+        if(other.gameObject.TryGetComponent<Monster>(out Monster monster) && monster.gameObject.activeSelf == true) {
             monster.TakeDamage(Damage);
+            AudioManager.Instance.PlaySfx(AudioManager.Sfx_Dic.TakeDamage);
+
         }
     }
 

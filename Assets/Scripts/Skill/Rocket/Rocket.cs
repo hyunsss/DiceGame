@@ -26,6 +26,7 @@ public class Rocket : Skill
         MissileObject.transform.SetParent(gameObject.transform);
         MissileObject.transform.SetLocalPositionAndRotation(GameManager.Instance.GetPlayerPos, Quaternion.identity);
         MissileObject.GetComponent<Missile>().Shot(RocketSpeed);
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx_Dic.Rocket);
 
         Destroy(MissileObject, 8f);
 

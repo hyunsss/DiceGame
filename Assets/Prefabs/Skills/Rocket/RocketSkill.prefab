@@ -47,7 +47,7 @@ MonoBehaviour:
   type: 1
   level: 1
   ExplosionDamage: 40
-  AreaDamage: 0.4
+  AreaDamage: 20
   RocketSpeed: 2
   missilePrefab: {fileID: 3535710965917231774, guid: 1c8105ca1442c4148b249e35e730612e, type: 3}
   ExplosionArea: {fileID: 134012969182405198, guid: 0a410630c328e41d69c0fbcb2fc068f4, type: 3}

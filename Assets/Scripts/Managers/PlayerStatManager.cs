@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class PlayerStatManager : SingleTon<PlayerStatManager>
 {
@@ -11,8 +12,10 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
 
     void Update()
     {
-        if (Player.Instance.ExpAmount >= 1) CheckPlayerLevelUp();
-        if (Player.Instance.GetHp > Player.Instance.GetFullHp) MaximumHp();
+        if(SceneManager.GetActiveScene().name == "GamePlayScene") {
+            if (Player.Instance.ExpAmount >= 1) CheckPlayerLevelUp();
+            if (Player.Instance.GetHp > Player.Instance.GetFullHp) MaximumHp();
+        }
 
     }
 
@@ -23,6 +26,7 @@ public class PlayerStatManager : SingleTon<PlayerStatManager>
         Player.Instance.GetCurrentExp = 0;
 
         LevelUp?.Invoke();
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx_Dic.LevelUp);
     }
 
     void MaximumHp()

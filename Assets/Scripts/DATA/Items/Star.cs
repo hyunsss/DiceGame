@@ -15,7 +15,7 @@ public class Star : Item
     public override void Use()
     {
         Player.Instance.GetHp += RecoveryHp;
-        Destroy();
+   
     }
 
     

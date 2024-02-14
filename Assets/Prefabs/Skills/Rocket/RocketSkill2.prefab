@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3605949500310419809, guid: 9be361e26678a4e1497c3de0f3d5be49, type: 3}
       propertyPath: AreaDamage
-      value: 0.5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3605949500310419809, guid: 9be361e26678a4e1497c3de0f3d5be49, type: 3}
       propertyPath: RocketSpeed

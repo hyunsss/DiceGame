@@ -1,0 +1,154 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2519208177728706234
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1374285161725945924}
+  - component: {fileID: 6238852520061969825}
+  m_Layer: 0
+  m_Name: DATA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1374285161725945924
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2519208177728706234}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6238852520061969825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2519208177728706234}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b239a8e1ac5e471ab050a11cf662208, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes:
+    - Name: Testfile
+      Entry: 6
+      Data: 
+    - Name: Skill_name_Dic
+      Entry: 7
+      Data: 0|System.Collections.Generic.Dictionary`2[[SkillType, Assembly-CSharp],[System.String,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 1|System.Collections.Generic.EnumEqualityComparer`1[[SkillType, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Skill_Desc_Dic
+      Entry: 7
+      Data: 2|System.Collections.Generic.Dictionary`2[[SkillType, Assembly-CSharp],[System.String,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 1
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Item_name_Dic
+      Entry: 7
+      Data: 3|System.Collections.Generic.Dictionary`2[[ItemType, Assembly-CSharp],[System.String,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 7
+      Data: 4|System.Collections.Generic.EnumEqualityComparer`1[[ItemType, Assembly-CSharp]],
+        mscorlib
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: Item_Desc_Dic
+      Entry: 7
+      Data: 5|System.Collections.Generic.Dictionary`2[[ItemType, Assembly-CSharp],[System.String,
+        mscorlib]], mscorlib
+    - Name: comparer
+      Entry: 9
+      Data: 4
+    - Name: 
+      Entry: 12
+      Data: 0
+    - Name: 
+      Entry: 13
+      Data: 
+    - Name: 
+      Entry: 8
+      Data: 
+  RotateKnife_name: "\uD68C\uC804 \uB0AB"
+  Rocket_name: "\uB85C\uCF13"
+  Shuriken_name: "\uC218\uB9AC\uAC80"
+  RotateKnife_Desc: "\uC8FC\uBCC0\uC5D0 \uB0AB\uC744 \uC18C\uD658\uD558\uC5EC \uC801\uB4E4\uC744
+    \uACF5\uACA9\uD569\uB2C8\uB2E4."
+  Rocket_Desc: "\uB85C\uCF13\uC744 \uBC1C\uC0AC\uD558\uC5EC \uC801\uC5D0\uAC8C \uD070
+    \uB370\uBBF8\uC9C0\uB97C \uC8FC\uACE0 \uC77C\uC815\uC601\uC5ED\uC5D0 \uC9C0\uC18D
+    \uB370\uBBF8\uC9C0\uB97C \uC785\uD799\uB2C8\uB2E4."
+  Shuriken_Desc: "\uD50C\uB808\uC774\uC5B4 \uC8FC\uBCC0\uC73C\uB85C \uC218\uB9AC\uAC80\uC744
+    \uBC1C\uC0AC\uD558\uC5EC \uB370\uBBF8\uC9C0\uB97C \uC785\uD799\uB2C8\uB2E4."
+  Potion_name: "\uD3EC\uC158"
+  Potion_Desc: "\uCCB4\uB825\uC744 20%\uB9CC\uD07C \uD68C\uBCF5 \uC2DC\uD0B5\uB2C8\uB2E4."

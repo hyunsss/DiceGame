@@ -9,23 +9,21 @@ public class ObjectPoolManager : SingleTon<ObjectPoolManager>
     [SerializeField]private List<GameObject> UsePrefabs = new List<GameObject>();
     [SerializeField]private List<GameObject> UnUsePrefabs = new List<GameObject>();
 
+    public Transform MonsterList;
+
+    public List<GameObject> GetSpawnMobList { get { return UsePrefabs;} private set {} }
     public int InitPrefabCount;
 
-    // Start is called before the first frame update
-    protected override void Awake()
-    {
-        base.Awake();
-    }
-
-    private void Start()
-    {
+    private void Start() {
         for(int i = 0; i < InitPrefabCount; i++) {
             CreatePrefabs(GameManager.Instance.RandomMonster(), out GameObject Unit);
-            Unit.transform.parent = transform;
+            Unit.transform.parent = MonsterList;
             Unit.SetActive(false);
             UnUsePrefabs.Add(Unit);
         }
     }
+
+
     //특정 프리팹을 받아 생성하고 반환
     public void CreatePrefabs(GameObject Prefab, out GameObject Unit) {
         Unit = Instantiate(Prefab);
@@ -48,8 +46,8 @@ public class ObjectPoolManager : SingleTon<ObjectPoolManager>
                 resetTable.Reset(); // 스텟 초기화 구문
             }
 
-            Unit.transform.parent = null;
             Unit.SetActive(true);
+            Unit.GetComponent<Monster>().UnActivetrue = false;
             return Unit;
         }
         else
@@ -70,7 +68,6 @@ public class ObjectPoolManager : SingleTon<ObjectPoolManager>
         
         if (UsePrefabs != null && UsePrefabs.Remove(Prefab))
         {
-            Prefab.transform.parent = transform;
             Prefab.SetActive(false);
             UnUsePrefabs.Add(Prefab);
         }

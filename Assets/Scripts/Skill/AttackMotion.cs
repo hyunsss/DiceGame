@@ -19,7 +19,7 @@ public class AttackMotion : MonoBehaviour
 
 
     private void OnTriggerEnter2D(Collider2D other) {
-        if(other.gameObject.TryGetComponent(out Monster monster)) {
+        if(other.gameObject.TryGetComponent(out Monster monster) && monster.gameObject.activeSelf == true) {
             monster.TakeDamage(Player.Instance.GetDamage);
             Debug.Log("attack!");
 

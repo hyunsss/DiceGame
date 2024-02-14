@@ -14,7 +14,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3116945204924139259, guid: 90a56a747eb394986ae1722b20825293, type: 3}
       propertyPath: AreaDamage
-      value: 1.5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3116945204924139259, guid: 90a56a747eb394986ae1722b20825293, type: 3}
       propertyPath: ExplosionDamage

@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class DragController : MonoBehaviour, IDragHandler, IBeginDragHandler, IEndDragHandler, IPointerClickHandler
 {
-    public Image image;
     private RectTransform rect;
     [HideInInspector] public Transform parentAfterDrag;
+
 
     /*
     Todo List 
@@ -36,43 +37,75 @@ public class DragController : MonoBehaviour, IDragHandler, IBeginDragHandler, IE
     */
 
 
-    private void Awake() {
+    private void Awake()
+    {
         rect = GetComponent<RectTransform>();
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
         parentAfterDrag = transform.parent;
+        
+        if (parentAfterDrag.GetComponent<Slot>().Slotitemtype == ItemType.ShopItem) return;
+
+        //드래그를 시작하는 곳의 슬롯 타입이 샵 아이템인 경우 리턴
         transform.SetParent(transform.root);
         transform.SetAsLastSibling();
-        parentAfterDrag.GetComponent<Slot>().item = null;
-        image.raycastTarget = false;
+        parentAfterDrag.GetComponent<Slot>().itemPrefab = null;
+        GetComponent<Item>()._itemimage_Component.raycastTarget = false;
+
     }
 
     public void OnDrag(PointerEventData eventData)
-    {   
+    {
+        if (parentAfterDrag.GetComponent<Slot>().Slotitemtype == ItemType.ShopItem) return;
+
         Vector2 MousePos = Camera.main.ScreenToWorldPoint(eventData.position);
         parentAfterDrag.GetComponent<Slot>().ItemStatusobj.SetActive(false);
         rect.position = new Vector3(MousePos.x, MousePos.y, 0);
+
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        parentAfterDrag.GetComponent<Slot>().item = this.gameObject.GetComponent<Item>();
+        parentAfterDrag.GetComponent<Slot>().itemPrefab = this.gameObject;
         transform.SetParent(parentAfterDrag);
 
-        image.raycastTarget = true;
+        GetComponent<Item>()._itemimage_Component.raycastTarget = true;
+        AudioManager.Instance.PlaySfx(AudioManager.Sfx_Dic.DropItem);
+
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(Input.GetKey(KeyCode.LeftShift)) {
-            InventoryManager.Instance.ShiftMoveItem(gameObject.GetComponent<Item>());
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            if (SceneManager.GetActiveScene().name == "GamePlayScene") InventoryManager.Instance.ShiftMoveItem(gameObject.GetComponent<Item>());
+
+            if (SceneManager.GetActiveScene().name == "MainMenuScene") MainInventory.Instance.ShiftMoveItem(gameObject.GetComponent<Item>());
+        }
+
+        if (transform.parent.GetComponent<Slot>().Slotitemtype == ItemType.ShopItem)
+        {
+            GameObject currentItem = eventData.pointerClick;
+            ShopManager shopManager = currentItem.GetComponentInParent<ShopManager>();
+            shopManager.buyslot.itemPrefab = currentItem;
+            if (shopManager.buyslot.GetComponentInChildren<Item>() != null)
+            {
+                Destroy(shopManager.buyslot.GetComponentInChildren<Item>().gameObject);
+            }
+            GameObject buyitem = Instantiate(shopManager.buyslot.itemPrefab);
+            buyitem.transform.SetParent(shopManager.buyslot.transform);
+            buyitem.transform.localScale = new Vector3(1, 1, 1);
+            buyitem.transform.position = Vector3.zero;
+
         }
     }
+
+
 }

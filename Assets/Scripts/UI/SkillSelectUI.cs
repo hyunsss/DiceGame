@@ -25,7 +25,7 @@ public class SkillSelectUI : MonoBehaviour
 
         int RandomCount = NotMaxLevelSkills.Count >= 3 ? 3 : NotMaxLevelSkills.Count; 
 
-        int[] RandomIndex = GameManager.Instance.GenerateRandomListIndex(NotMaxLevelSkills, RandomCount);
+        int[] RandomIndex = GameManager.Instance.GetRandomIndexesFromList(NotMaxLevelSkills, RandomCount);
 
         for(int i = 0; i < RandomIndex.Length; i++) {
             SelectPanels[i].GetComponent<SkillSelectButton>().currenttype = Player.Instance.MySkill[RandomIndex[i]].GetComponent<Skill>().type;

@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 6823041408537101277}
   - component: {fileID: 8142986927530305492}
   - component: {fileID: 6522970285463061834}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: RotateKnife
-  m_TagString: RotateKnife
+  m_TagString: Skill
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,7 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6941125177042800430}
   - component: {fileID: 5668881687334866501}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,8 +146,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 2, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6694223706533365522}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -191,8 +191,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 6f14c91f35c9d4defb7c114f6564ac91, type: 3}
+  m_SortingOrder: 5
+  m_Sprite: {fileID: 21300000, guid: dcbdaa3f8f17d4cd095150dbf8468694, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

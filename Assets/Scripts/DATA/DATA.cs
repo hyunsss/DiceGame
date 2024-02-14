@@ -1,14 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
-using Unity.VisualScripting.ReorderableList;
 using UnityEngine;
 
 public enum BoxType { NoneBox, EquipmentBox, SkillBox }
 public enum SkillType {  None, Rocket, Rotate, Shuriken, Count }
 public enum ItemType { None, Expendable, Equipment, Weapon, PassiveSkill, 
-Activeskill, UpgradePart, EtcItem }
+Activeskill, UpgradePart, EtcItem, ShopItem }
+public enum SlotParentUIType { Inventory, RootBox, Passive, Skill, Equipment, Weapon }
 
 
 public class DATA : SingleTon<DATA>
@@ -72,7 +69,7 @@ public class DATA : SingleTon<DATA>
                     item.type = (ItemType)(int)data["TYPE"];
                     item._itemprize = (int)data["PRIZE"];
                     string ImagePath = data["ImagePath"].ToString();
-                    item._itemimage.sprite = Resources.Load<Sprite>($"ItemTexture/{ImagePath}");
+                    item.itemSprite = Resources.Load<Sprite>($"ItemTexture/{ImagePath}");
                     break;
                 }
             }

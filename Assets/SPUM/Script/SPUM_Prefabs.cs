@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+
 public class SPUM_Prefabs : MonoBehaviour
 {
     public float _version;
@@ -45,7 +46,6 @@ public class SPUM_Prefabs : MonoBehaviour
         {
             if(animationName.Key.ToLower().Contains(name.ToLower()) ){
                 _anim.Play(animationName.Value, 0);
-                
                 break;
             }
         }

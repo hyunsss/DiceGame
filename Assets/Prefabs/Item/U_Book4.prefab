@@ -8,6 +8,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2867265766521064057, guid: 2cf9dcefcb48c441cac4193bf25ff14f, type: 3}
+      propertyPath: type
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: -2867265766521064057, guid: 2cf9dcefcb48c441cac4193bf25ff14f, type: 3}
+      propertyPath: _itemdesc
+      value: "\uAC15\uD654 \uC7AC\uB8CC"
+      objectReference: {fileID: 0}
+    - target: {fileID: -2867265766521064057, guid: 2cf9dcefcb48c441cac4193bf25ff14f, type: 3}
+      propertyPath: _itemname
+      value: "\uCC454"
+      objectReference: {fileID: 0}
+    - target: {fileID: -2867265766521064057, guid: 2cf9dcefcb48c441cac4193bf25ff14f, type: 3}
+      propertyPath: _itemprize
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 1152847709821293544, guid: 2cf9dcefcb48c441cac4193bf25ff14f, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -88,10 +104,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4534270934353580826, guid: 2cf9dcefcb48c441cac4193bf25ff14f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2b7a2cef34054457954a032dacbd477, type: 3}
     - target: {fileID: 5302045501647354080, guid: 2cf9dcefcb48c441cac4193bf25ff14f, type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 432b1e007ac2f4614806845504c4cb68, type: 3}
+    - target: {fileID: 6578935796173762760, guid: 2cf9dcefcb48c441cac4193bf25ff14f, type: 3}
+      propertyPath: m_Size.x
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6578935796173762760, guid: 2cf9dcefcb48c441cac4193bf25ff14f, type: 3}
+      propertyPath: m_Size.y
+      value: 2.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 6578935796173762760, guid: 2cf9dcefcb48c441cac4193bf25ff14f, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: c2b7a2cef34054457954a032dacbd477, type: 3}
+    - target: {fileID: 6578935796173762760, guid: 2cf9dcefcb48c441cac4193bf25ff14f, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8049873123407084144, guid: 2cf9dcefcb48c441cac4193bf25ff14f, type: 3}
       propertyPath: m_Name
       value: U_Book4
